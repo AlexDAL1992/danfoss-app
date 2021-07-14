@@ -1,0 +1,7 @@
+{
+  "name": "danfoss-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

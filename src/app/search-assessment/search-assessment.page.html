@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-left">Site assessment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card class="ion-padding">
+          <ion-label
+            ><h2><b>New Site Assessment</b></h2>
+            <p>Start a site assessment by identifying your customer.</p>
+          </ion-label></ion-card
+        >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button
+            type="submit"
+            (click)="onNewAssessment()"
+            expand="block"
+            >New assessment</ion-button
+          >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button
+            type="submit"
+            (click)="onExistingAssessment()"
+            expand="block"
+            >Existing assessment</ion-button
+          >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

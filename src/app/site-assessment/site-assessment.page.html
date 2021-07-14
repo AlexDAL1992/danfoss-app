@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-left">Site assessment</ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="/search-assessment">
+        <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+      </ion-button>
+      <ion-button (click)="onAddNewDrive()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="options"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-virtual-scroll [items]="drives" approxItemHeight="70px">
+    <ion-item detail *virtualItem="let drive">
+      <ion-thumbnail slot="start">
+        <img
+          src="https://img.icons8.com/ios/50/000000/thruster.png"
+        >
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{drive.model}}</h2>
+        <p>{{drive.serialNo}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-virtual-scroll>
+</ion-content>

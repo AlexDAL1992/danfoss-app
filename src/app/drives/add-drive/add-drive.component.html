@@ -1,0 +1,212 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onExit()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add new drive</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onAddDrive()" [disabled]="!form.valid">
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="ellipsis-vertical-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-padding">
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked" color="medium">QR Code</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="qrCode"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium"
+          >Equipment location</ion-label
+        >
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="location"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium"
+          >Equipment designation tag</ion-label
+        >
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="designationTag"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium">Brand</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="brand"
+          requred
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium">Model</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="model"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium">Part number</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="partNumber"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium">Serial number</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="serialNumber"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium">Size kW</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="sizeKw"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium">Size A</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="sizeA"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium">IP rating</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="ipRating"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium"
+          >Year of manufacture/installation</ion-label
+        >
+        <ion-datetime
+          displayFormat="YYYY"
+          pickerFormat="YYYY"
+          [min]="1950"
+          formControlName="year"
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium"
+          >Lifecycle status</ion-label
+        >
+        <ion-select formControlName="lifecycleStatus">
+          <ion-select-option value="A">A</ion-select-option>
+          <ion-select-option value="L">L</ion-select-option>
+          <ion-select-option value="I">I</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium"
+          >Asset criticality</ion-label
+        >
+        <ion-select formControlName="assetCriticality">
+          <ion-select-option value="H">H</ion-select-option>
+          <ion-select-option value="M">M</ion-select-option>
+          <ion-select-option value="L">L</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium">Condition</ion-label>
+        <ion-select formControlName="condition">
+          <ion-select-option value="G">G</ion-select-option>
+          <ion-select-option value="M">M</ion-select-option>
+          <ion-select-option value="P">P</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium"
+          >Comments for the evaluation</ion-label
+        >
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="comments"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium">Action taken</ion-label>
+        <ion-select formControlName="action">
+          <ion-select-option value="Replaced">Replaced</ion-select-option>
+          <ion-select-option value="Exchanged">Exchanged</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium"
+          >Equipment status</ion-label
+        >
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="status"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium"
+          >Result of three ratings</ion-label
+        >
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="result"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="medium">Recommendation</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Input text"
+          formControlName="recommendation"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
