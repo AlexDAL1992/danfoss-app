@@ -15,7 +15,7 @@ export class SearchAssessmentPage implements OnInit {
   ngOnInit() {
   }
 
-  onNewAssessment(){
+  onSearchCustomer(){
     this.modalCtrl
       .create({
         component: NewSiteAssessmentComponent,

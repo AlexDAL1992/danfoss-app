@@ -20,7 +20,7 @@
 
 <ion-content>
   <ion-virtual-scroll [items]="drives" approxItemHeight="70px">
-    <ion-item detail *virtualItem="let drive">
+    <ion-item detail *virtualItem="let drive" (click)="onUpdateDrive(drive)">
       <ion-thumbnail slot="start">
         <img
           src="https://img.icons8.com/ios/50/000000/thruster.png"
