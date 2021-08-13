@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SiteAssessmentPageRoutingModule } from './site-assessment-routing.module';
 
 import { SiteAssessmentPage } from './site-assessment.page';
-import { AddDriveComponent } from '../drives/add-drive/add-drive.component';
+import { AddDriveComponent } from '../drives/drive/drive-form.component';
 
 @NgModule({
   imports: [

@@ -91,7 +91,7 @@ export class DrivesService {
   }
 
   addDrive(
-    id: string,
+    /* id: string,
     qrCode: string,
     location: string,
     designationTag: string,
@@ -110,9 +110,10 @@ export class DrivesService {
     actionTaken: string,
     equipmentStatus: string,
     resultOf3Ratings: string,
-    recommendation: string
+    recommendation: string */
+    newDrive: Drive
   ) {
-    const newDrive = new Drive(
+    /* const newDrive = new Drive(
       id,
       qrCode,
       location,
@@ -133,7 +134,7 @@ export class DrivesService {
       equipmentStatus,
       resultOf3Ratings,
       recommendation
-    );
+    ); */
 
     return this.drives.pipe(
       take(1),
@@ -144,7 +145,7 @@ export class DrivesService {
   }
 
   updateDrive(
-    id: string,
+    /* id: string,
     qrCode: string,
     location: string,
     designationTag: string,
@@ -163,35 +164,38 @@ export class DrivesService {
     actionTaken: string,
     equipmentStatus: string,
     resultOf3Ratings: string,
-    recommendation: string
+    recommendation: string */
+    updatedDrive: Drive
   ) {
     return this.drives.pipe(
       take(1),
       tap((drives) => {
-        const updatedDriveIndex = drives.findIndex((drive) => drive.id === id);
+        const updatedDriveIndex = drives.findIndex(
+          (drive) => drive.id === updatedDrive.id
+        );
         const updatedDrives = [...drives];
         const oldDrive = updatedDrives[updatedDriveIndex];
         updatedDrives[updatedDriveIndex] = new Drive(
           oldDrive.id,
-          qrCode,
-          location,
-          designationTag,
-          brand,
-          model,
-          partNo,
-          serialNo,
-          sizeKW,
-          sizeA,
-          ipRating,
-          year,
-          lifecycleStatus,
-          assetCriticality,
-          condition,
-          comments,
-          actionTaken,
-          equipmentStatus,
-          resultOf3Ratings,
-          recommendation
+          updatedDrive.qrCode,
+          updatedDrive.location,
+          updatedDrive.designationTag,
+          updatedDrive.brand,
+          updatedDrive.model,
+          updatedDrive.partNo,
+          updatedDrive.serialNo,
+          updatedDrive.sizeKW,
+          updatedDrive.sizeA,
+          updatedDrive.ipRating,
+          updatedDrive.year,
+          updatedDrive.lifecycleStatus,
+          updatedDrive.assetCriticality,
+          updatedDrive.condition,
+          updatedDrive.comments,
+          updatedDrive.actionTaken,
+          updatedDrive.equipmentStatus,
+          updatedDrive.resultOf3Ratings,
+          updatedDrive.recommendation
         );
         this._drives.next(updatedDrives);
       })

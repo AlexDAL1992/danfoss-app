@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AddDriveComponent } from './add-drive.component';
+import { AddDriveComponent } from './drive-form.component';
 
 describe('AddDriveComponent', () => {
   let component: AddDriveComponent;

@@ -1,7 +1,7 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
-import { AddDriveComponent } from '../drives/add-drive/add-drive.component';
+import { AddDriveComponent } from '../drives/drive/drive-form.component';
 import { Drive } from '../models/drive/drive.model';
 import { DrivesService } from '../services/drive/drives.service';
 
@@ -30,26 +30,7 @@ export class SiteAssessmentPage implements OnInit, OnDestroy {
     const modal = await this.modalCtrl.create({
       component: AddDriveComponent,
       componentProps: {
-        id: drive.id,
-        qrCode: drive.qrCode,
-        location: drive.location,
-        designationTag: drive.designationTag,
-        brand: drive.brand,
-        model: drive.model,
-        partNumber: drive.partNo,
-        serialNumber: drive.serialNo,
-        sizeKw: drive.sizeKW,
-        sizeA: drive.sizeA,
-        ipRating: drive.ipRating,
-        year: drive.year,
-        lifecycleStatus: drive.lifecycleStatus,
-        assetCriticality: drive.assetCriticality,
-        condition: drive.condition,
-        comments: drive.comments,
-        action: drive.actionTaken,
-        status: drive.equipmentStatus,
-        result: drive.resultOf3Ratings,
-        recommendation: drive.recommendation,
+        drive
       },
     });
     return await modal.present();
