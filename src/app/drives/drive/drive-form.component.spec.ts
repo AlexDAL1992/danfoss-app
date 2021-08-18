@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AddDriveComponent } from './drive-form.component';
+import { DriveFormComponent } from './drive-form.component';
 
 describe('AddDriveComponent', () => {
-  let component: AddDriveComponent;
-  let fixture: ComponentFixture<AddDriveComponent>;
+  let component: DriveFormComponent;
+  let fixture: ComponentFixture<DriveFormComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddDriveComponent ],
+      declarations: [ DriveFormComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AddDriveComponent);
+    fixture = TestBed.createComponent(DriveFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
-import { AddDriveComponent } from '../drives/drive/drive-form.component';
+import { DriveFormComponent } from '../drives/drive/drive-form.component';
 import { Drive } from '../models/drive/drive.model';
 import { DrivesService } from '../services/drive/drives.service';
 
@@ -13,7 +13,6 @@ import { DrivesService } from '../services/drive/drives.service';
 export class SiteAssessmentPage implements OnInit, OnDestroy {
   drives: Drive[];
   private drivesSub: Subscription;
-  //private drive: Drive = document.getElementsByName('drive');
 
   constructor(
     private drivesService: DrivesService,
@@ -28,9 +27,11 @@ export class SiteAssessmentPage implements OnInit, OnDestroy {
 
   async onUpdateDrive(drive: Drive) {
     const modal = await this.modalCtrl.create({
-      component: AddDriveComponent,
+      component: DriveFormComponent,
       componentProps: {
-        drive
+        drive,
+        titleText: 'Update drive',
+        indicator: 'update',
       },
     });
     return await modal.present();
@@ -39,7 +40,11 @@ export class SiteAssessmentPage implements OnInit, OnDestroy {
   onAddNewDrive() {
     this.modalCtrl
       .create({
-        component: AddDriveComponent,
+        component: DriveFormComponent,
+        componentProps: {
+          titleText: 'Add new drive',
+          indicator: 'add',
+        },
       })
       .then((modalElement) => {
         modalElement.present();

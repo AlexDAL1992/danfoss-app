@@ -10,8 +10,10 @@ import { DrivesService } from '../../services/drive/drives.service';
   templateUrl: './drive-form.component.html',
   styleUrls: ['./drive-form.component.scss'],
 })
-export class AddDriveComponent implements OnInit {
+export class DriveFormComponent implements OnInit {
   @Input() drive: Drive;
+  @Input() titleText: string;
+  @Input() indicator: string;
 
   form: FormGroup;
   private index = 3;
@@ -108,14 +110,54 @@ export class AddDriveComponent implements OnInit {
   }
 
   onClickEvent() {
-    if (this.drive === null) {
-      this.onUpdateDrive();
-    } else {
-      this.onAddDrive();
+    /* if (!this.form.valid) {
+      return;
+    } */
+
+    if (this.indicator === 'update') {
+      this.drivesService.updateDrive(this.drive).subscribe(() => {
+        this.form.reset();
+        this.onExit();
+      });
+    } else if (this.indicator === 'add') {
+      ++this.index;
+      this.loadingCtrl
+        .create({ message: 'Adding new drive...' })
+        .then((loadingElement) => {
+          loadingElement.present();
+
+          const newDrive = new Drive(
+            'drive' + this.index,
+            this.form.value.qrCode,
+            this.form.value.location,
+            this.form.value.designationTag,
+            this.form.value.brand,
+            this.form.value.model,
+            this.form.value.partNumber,
+            this.form.value.serialNumber,
+            this.form.value.sizeKw,
+            this.form.value.sizeA,
+            this.form.value.ipRating,
+            new Date(this.form.value.year),
+            this.form.value.lifecycleStatus,
+            this.form.value.assetCriticality,
+            this.form.value.condition,
+            this.form.value.comments,
+            this.form.value.action,
+            this.form.value.status,
+            this.form.value.result,
+            this.form.value.recommendation
+          );
+          this.drivesService.addDrive(newDrive).subscribe(() => {
+            loadingElement.dismiss();
+            this.form.reset();
+            this.onExit();
+          });
+        });
     }
   }
 
-  onAddDrive() {
+  /* onAddDrive() {
     if (!this.form.valid) {
       return;
     }
@@ -179,9 +221,10 @@ export class AddDriveComponent implements OnInit {
       this.form.value.resultOf3Ratings,
       this.form.value.recommendation
     );
-    this.drivesService.updateDrive(updatedDrive).subscribe(() => {
+
+    this.drivesService.updateDrive(this.drive).subscribe(() => {
       this.form.reset();
       this.onExit();
     });
-  }
+  } */
 }

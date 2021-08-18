@@ -5,9 +5,9 @@
         <ion-icon name="close" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Add new drive</ion-title>
+    <ion-title>{{ titleText }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="onAddDrive()" [disabled]="!form.valid">
+      <ion-button (click)="onClickEvent()" [disabled]="!form.valid">
         <ion-icon name="checkmark" slot="icon-only"></ion-icon>
       </ion-button>
       <ion-button>
