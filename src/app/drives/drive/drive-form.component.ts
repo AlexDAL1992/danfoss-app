@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, ModalController } from '@ionic/angular';
-import { on } from 'events';
 import { Drive } from 'src/app/models/drive/drive.model';
 import { DrivesService } from '../../services/drive/drives.service';
 
